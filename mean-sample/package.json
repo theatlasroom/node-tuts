@@ -2,5 +2,9 @@
   "name": "meansample",
   "version": "0.0.0",
   "dependencies": {},
-  "repository": {}
+  "repository": {},
+  "devDependencies": {
+    "express": "^4.12.4",
+    "morgan": "^1.6.0"
+  }
 }
