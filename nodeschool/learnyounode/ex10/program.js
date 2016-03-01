@@ -14,3 +14,22 @@
 *
 * After sending the string, close the connection.
 */
+
+var net = require('net'); // add the net package
+var port = process.argv[2]; // get the first argument
+
+// create the TCP server
+var server = net.createServer(handleConnection);
+server.listen(port);
+
+// callback to process a new server connection
+function handleConnection(socket){
+  var d = new Date();
+  var formatted = d.getFullYear() + "-" + padWithZero(d.getMonth()+1) + "-" + padWithZero(d.getDate()) + " " + padWithZero(d.getHours()) + ":" + padWithZero(d.getMinutes()) + "\n";
+  socket.write(formatted);
+  socket.end();
+}
+
+function padWithZero(num){
+  return (num < 10) ? "0"+num : num;
+}
