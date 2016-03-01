@@ -30,13 +30,17 @@ var url = require('url');
 var port = process.argv[2];
 
 var server = http.createServer(function(req, res){
+  // call the request handler
+  var response = handleRequest(req);
+  // set the headers and return the response
   res.writeHead(200, {'content-type':'application/json'});
-  req.pipe(map(handleRequest)).pipe(res);
+  res.end(response);
 });
 
 server.listen(port);
 
 function parseTime(datetime){
+  // parse the time into a useful object
   var date = new Date(datetime);
   return {
     "hour": date.getHours(),
@@ -46,17 +50,21 @@ function parseTime(datetime){
 }
 
 function unixtime(datetime){
-
+  // return the unix timestamp
+  var date = new Date(datetime);
+  return {"unixtime": date.getTime()};
 }
 
 function handleRequest(req){
-  var r = url.parse(req.url);
-  var dt = r.query.split("=")[1];
+  // handle the request for different endpoints
+  var r = url.parse(req.url, true);
+  var dt = r.query.iso;
   var data = "";
 
-  if (r.pathname == "/api/parsetime") data = parseTime(dt);
-  if (r.pathname == "/api/unixtime") unixtime(dt);
-  console.log(JSON.stringify(data));
-  //return data;
+  if (r.pathname == "/api/parsetime")
+    data = parseTime(dt);
+  if (r.pathname == "/api/unixtime")
+    data = unixtime(dt);
+  //return a json string
   return JSON.stringify(data);
 }
