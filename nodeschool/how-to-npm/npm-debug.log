@@ -1,0 +1,45 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'dist-tag',
+1 verbose cli   'add',
+1 verbose cli   '@theatlasroom/how-to-npm@1.2.0',
+1 verbose cli   '[latest]' ]
+2 info using npm@3.7.3
+3 info using node@v5.8.0
+4 verbose dist-tag add [latest] to @theatlasroom/how-to-npm@1.2.0
+5 silly mapToRegistry name @theatlasroom/how-to-npm
+6 silly mapToRegistry scope (from package name) @theatlasroom
+7 verbose mapToRegistry no registry URL found in name for scope @theatlasroom
+8 silly mapToRegistry using default registry
+9 silly mapToRegistry registry http://localhost:15443/
+10 silly mapToRegistry uri http://localhost:15443/@theatlasroom%2fhow-to-npm
+11 verbose request uri http://localhost:15443/-/package/@theatlasroom%2fhow-to-npm/dist-tags
+12 verbose request no auth needed
+13 info attempt registry request try #1 at 1:11:02 PM
+14 verbose request id a0fb6ff221dcd2fb
+15 http request GET http://localhost:15443/-/package/@theatlasroom%2fhow-to-npm/dist-tags
+16 http 200 http://localhost:15443/-/package/@theatlasroom%2fhow-to-npm/dist-tags
+17 verbose headers { date: 'Sat, 07 May 2016 03:11:02 GMT',
+17 verbose headers   connection: 'keep-alive',
+17 verbose headers   'content-length': '2' }
+18 verbose stack Error: No dist-tags found for @theatlasroom/how-to-npm
+18 verbose stack     at /usr/local/lib/node_modules/npm/lib/dist-tag.js:147:19
+18 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/dist-tags/fetch.js:35:5
+18 verbose stack     at /usr/local/lib/node_modules/npm/lib/cache/caching-client.js:53:8
+18 verbose stack     at f (/usr/local/lib/node_modules/npm/node_modules/once/once.js:17:25)
+18 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:76:16
+18 verbose stack     at f (/usr/local/lib/node_modules/npm/node_modules/once/once.js:17:25)
+18 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:259:12)
+18 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+18 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:199:22)
+18 verbose stack     at emitTwo (events.js:100:13)
+19 verbose cwd /Users/bardock/Sites/node-tuts/nodeschool/how-to-npm
+20 error Darwin 15.4.0
+21 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "dist-tag" "add" "@theatlasroom/how-to-npm@1.2.0" "[latest]"
+22 error node v5.8.0
+23 error npm  v3.7.3
+24 error No dist-tags found for @theatlasroom/how-to-npm
+25 error If you need help, you may report this error at:
+25 error     <https://github.com/npm/npm/issues>
+26 verbose exit [ 1, true ]
